@@ -38,7 +38,7 @@ class Menu() :
                         self.pos+=1
                         if self.scrollsound is not None :
                             self.scrollsound.play()
-                        speech.say(self.options[self.pos][0])
+                        speech.say(self.options[self.pos])
                     else :
                         if self.boundarysound is not None :
                             self.boundarysound.play()
@@ -47,15 +47,13 @@ class Menu() :
                         self.pos-=1
                         if self.scrollsound is not None :
                             self.scrollsound.play()
-                        speech.say(self.options[self.pos][0])
+                        speech.say(self.options[self.pos])
                     else :
                         if self.boundarysound is not None :
                             self.boundarysound.play()
                 if event.type == pygame.KEYDOWN and event.key == self.clickkey :
                     if self.clicksound is not None :
                         self.clicksound.play()
-                    self.options[self.pos][1]()
-                    if self.options[self.pos][2] :
-                        return None
+                    return self.pos
             self.screen.fill((0,0,0))
             pygame.display.update()

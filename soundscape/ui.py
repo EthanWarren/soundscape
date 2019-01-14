@@ -55,6 +55,7 @@ class Menu() :
                     if self.clicksound is not None :
                         self.clicksound.play()
                     self.options[self.pos][1]()
-                    return None
+                    if self.options[self.pos][2] :
+                        return None
             self.screen.fill((0,0,0))
             pygame.display.update()
